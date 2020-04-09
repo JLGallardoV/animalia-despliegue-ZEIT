@@ -1,0 +1,141 @@
+//CONTENDEDOR DE LOS INPUTS
+.cardInputs{
+  height: 99%;
+  width: 95%;
+  margin: auto;
+  display: inline-block;
+  margin-left: 10px;
+}
+//BTN IMPRIMIR TICKET
+.ticket{
+  top: -30px!important;
+  float: right;
+  left: -45px;
+}
+
+//BTN PARA REALIZAR UNA VENTA
+.btnVender{
+  width: 40%;
+  float: right;
+  margin-top: -50px;
+}
+
+//BTN PARA AÑADIR PRODUCTOS AL CARRITO (TABLA PRODUCTOS)
+.btnAniadirEntidad{
+  color: white;
+  width: 23px !important;
+  height: 23px !important;
+  top: 5px;
+}
+
+
+//FUENTE USADA PARA EL ENCABEZADO ARRIBA DE LA TABLA Y LISTA DE OUTPUTS
+.fuenteEncabezadosCentrada{
+  font-size: 27px;
+  text-align: center;
+}
+
+//BORDE PARA GRID DE OUTPUTS
+.bordeOutputs{
+  border: solid 1px #012440;
+  border-radius: 6px;
+  margin: auto;
+  height: 80%;
+}
+
+//ESTILO PARA LISTA DE PRODUCTOS Y TIPOS DE PAGOS
+.listaEntidad{
+  max-height: 175px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  width: 100%;
+  min-height: 60%;
+  max-height: 63%;
+}
+
+//MONTO, QUITAR BORDE AL INPUT READONLY DONDE SE MUESTRA EL MONTO
+.outputMonto{
+  width: 25%;
+  background:#f9f9f9;
+  border: none;
+}
+
+//MONTO, MODIFICA EL LABEL EN GENERAL
+.labelOutput{
+  font-size:24px;
+  margin-top: 25px;
+  width:25%
+}
+
+//ESTILO PARA ETIQUETAS DE MONTO,CAMBIO,PAGO
+.resultadoOperaciones{
+  float: right;
+  color: #2a2d3b;
+  margin-bottom: 0px;
+  font-size: 22px!important;
+}
+
+//ESTILO PARA BTN QUE REDIRECCIONARA A COMPRAS
+.btnCompras{
+  float: right;
+  margin-right: 5px;
+  background: #000000b8;
+  transition: 0.2s;
+}
+
+.btnCompras:hover{
+  float: right;
+  margin-right: 9px;
+  background: black;
+}
+
+//ICONO DE CARRITO DEL BTN QUE REDIRIGE A COMPRAS
+.carritoIrCompras{
+  font-size: 28px;
+  color: darkseagreen;
+  margin-left: -3px;
+}
+
+//BTN PARA ELIMINAR PRODUCTOS DEL CARRITO (TABLA PRODUCTOS) BASURERO
+.btnEliminarProductoInteresado{
+  border: none;
+  font-size:16px;
+  background-color:transparent;
+}
+
+//OCULTA EL TICKET DE LA VENTA (LO ESCONDE DEL MODULO POR MILISEGUNDOS CUANDO APARECE)
+.ocultarTicket{
+  font-size: 14px;
+  height: auto;width: 200px;
+  margin-left: 200px;
+  margin-top: -150%;
+  position: fixed;
+}
+
+//BOTON NUEVA VENTA (LIMPIAR PANTALLA)
+.nvaVenta{
+  float: right;
+  margin-top: 25px;
+  font-size: 20px
+}
+
+/*SOBREESCRIBIENDO CLASES DEL TEMA CREADO LO COLOCO COMO PARTE DE CADA COMPONENTE YA
+QUE GLOBALMENTE (STYLES.CSS) NO ME RESPETA LA IMPORTANCIA*/
+
+//Cambiamos el encabezado del tab group
+::ng-deep.mat-tab-label{
+  font-family: 'Darker Grotesque', sans-serif!important;
+  font-size: 22px!important;
+}
+
+//SOBREESCRIBIMOS TEMA UNICAMENTE PARA ESTE COMPONENTE
+//modificamos el cuerpo de la tabla unicamente
+::ng-deep.mat-cell{
+  font-size: 18px !important;
+  color: #012440!important;
+  background-color: white!important;
+}
+
+::ng-deep.mat-select-value {
+  color:#012440!important;
+}

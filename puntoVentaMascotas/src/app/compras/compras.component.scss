@@ -1,0 +1,86 @@
+//CONTENDEDOR DE LOS INPUTS
+.cardInputs{
+  height: 99%;
+  width: 95%;
+  margin: auto;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+//BTN PARA REALIZAR UNA VENTA
+.btncomprar{
+  width: 40%;
+  float: right;
+  margin-top: -50px;
+}
+
+
+//MONTO, QUITAR BORDE AL INPUT READONLY DONDE SE MUESTRA EL MONTO
+.outputMonto{
+  width: 50%;
+  background:#f9f9f9;
+  border: none;
+}
+
+//BTN PARA AÑADIR PRODUCTOS AL CARRITO (TABLA PRODUCTOS)
+.btnAniadirEntidad{
+  color: white;
+  width: 23px !important;
+  height: 23px !important;
+  top: 5px;
+}
+
+//FUENTE USADA PARA EL ENCABEZADO ARRIBA DE LA TABLA Y LISTA DE OUTPUTS
+.fuenteEncabezadosCentrada{
+  font-size: 27px;
+  text-align: center;
+}
+
+//BORDE PARA GRID DE OUTPUTS
+.bordeOutputs{
+  border: solid 1px #a5a39d;
+  border-radius: 6px;
+  margin: auto;
+  height: 80%;
+
+}
+
+//BTN PARA ELIMINAR PRODUCTOS DEL CARRITO (TABLA PRODUCTOS) BASURERO
+.btnEliminarProductoInteresado{
+  border: none;
+  font-size:16px;
+  background-color:transparent;
+}
+
+//ESTILO PARA LISTA DE PRODUCTOS Y TIPOS DE PAGOS
+.listaEntidad{
+  max-height: 175px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  width: 100%;
+  min-height: 60%;
+  max-height: 63%;
+}
+
+//ESTILO PARA ETIQUETAS DE MONTO,CAMBIO,PAGO
+.resultadoOperaciones{
+  float: right;
+  color: #2a2d3b;
+  margin-bottom: 0px;
+  font-size: 22px!important;
+}
+
+
+//MONTO, MODIFICA EL LABEL EN GENERAL
+.labelOutput{
+  font-size:24px;
+  margin-top: 25px;
+  width:25%
+}
+
+//BOTON NUEVA COMPRA (LIMPIAR PANTALLA)
+.nvaCompra{
+  font-size: 20px;
+  float: right;
+  display: none;
+}

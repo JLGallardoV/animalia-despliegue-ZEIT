@@ -1,0 +1,93 @@
+.cardPrincipal{
+  background-color: #000000bd;
+  border-radius: 6px;
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+}
+.btnAgregar{
+  color: #272727;
+  margin: auto;
+  width: 65%;
+}
+th.mat-header-cell {
+    padding-right: 40px!important;
+}
+
+//PARA LOS 2 INPUTS QUE RECIBEN LA FECHA DE FILTRADO EN EN TAB DE REPORTES ECONOMICOS
+.inputFiltrarxFecha{
+  margin-left: 2%;
+  margin-top: -2%;
+  width: 45%;
+}
+
+/*ESTILOS PARA PAGINADOR*/
+.mat-paginator {
+  width: 136%;
+  background:white;
+}
+
+/*PANTALLAS PEQUEÑAS*/
+@media screen and (max-width: 935px) {
+  .mat-paginator {
+    width: 109.99%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mat-paginator {
+    width: 128.99%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mat-paginator {
+    width: 264%;
+  }
+}
+@media screen and (max-width: 365px) {
+  .mat-paginator {
+    width: 306%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .mat-paginator {
+    width: 292%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .mat-paginator {
+    width: 350%;
+  }
+}
+
+//SOBREESCRIBIR EL TEMA DE ANGULAR MATERIAL:
+::ng-deep .mat-focused {
+  /*change color of label*/
+  color: #272727 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #272727 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #272727 !important;;
+}
+
+::ng-deep.mat-form-field-label{
+  color: #272727 !important;
+}
+// ANGULAR TAB
+::ng-deep.mat-tab-label{
+  color: #272727 !important;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 22px;
+}
+
+//AÑADIR PADDING AL TAB EN GENERAL PARA QUESE ALCANCE A DISTINGUIR LA SOMBRA INFERIOR DE LOS CARDS
+::ng-deep.mat-tab-body-content {
+  padding: 2px!important;
+}

@@ -1,0 +1,99 @@
+.cardPrincipal{
+  background-color: #0000008c;
+  border-radius: 6px;
+  width: 80%;
+  height: 85vh;
+  margin: 0 auto;
+}
+.cardElementos{
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: top;
+  background-size: cover;
+  border-radius: 6px;
+  height: 6.5em;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 20px;
+  color: #212529;
+  position: initial;
+  text-align: center;
+  padding-top: 2.2em;
+
+}
+.cardElementos:hover{
+  background: #00000091!important;
+  border-radius: 8px;
+  height: 6.5em;
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 2.2em;
+  color: darkseagreen;
+}
+.iconosMenuPrincipal{
+  font-size:60px;
+  color:#eef4f9ad;
+}
+
+.espacioDerecho{
+  margin-right: 5px;
+}
+.espacioSuperior{
+  margin-top: 0px;
+}
+.margenSuperior{ //simula el br que quite para la responsividad a moviles
+  margin-top: 30px;
+}
+//LOS ESTILOS CAMBIARAN EN DISPOSITIVOS CON RESOLUCIONES PEQUEÑAS
+@media screen and (max-width: 600px) {
+  .cardElementos{
+    background: #f6f2ebe3;
+    border-radius: 5px;
+    height: 3em;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 4px;
+    padding-right: 50px;
+    padding-left: 50px;
+
+  }
+  .cardElementos:hover{
+    background: #00000091;
+    color: darkseagreen;
+    border-radius: 7px;
+    height: 3em;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 4px;
+    padding-right: 50px;
+    padding-left: 50px;
+
+  }
+  .margenSuperior{ //simula el br que quite para la responsividad a moviles
+    margin-top: 0px;
+  }
+  .espacioSuperior{ //espacio entre cards para que no se vean pegadas
+    margin-top: 5px;
+  }
+  .espacioDerecho{
+    margin-right: 0px;
+  }
+  .cardPrincipal{
+    background-color: #092b239e;
+    border-radius: 6px;
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+  }
+}
+
+//DISPOSITIVOS MUY PEQUEÑOS
+@media screen and (max-width: 340px) {
+  .cardPrincipal{
+    background-color: #092b239e;
+    border-radius: 6px;
+    width: 80%;
+    height: 110vh;
+    margin: 0 auto;
+  }
+}

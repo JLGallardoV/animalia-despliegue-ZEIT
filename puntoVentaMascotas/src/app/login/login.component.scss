@@ -1,0 +1,83 @@
+.background{
+	background: url('../../assets/img/tapizLogin2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+	height: 100vh;
+	width: 100vw;
+}
+
+
+.contenedorInputs > * {
+  width: 100%;
+}
+.cardFormulario {
+  background:#f4f4f4;
+  //#dfdcd4
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  height: auto;
+  width: 360px;
+  box-shadow: #353434 0px 1px 4px 0px;
+}
+.btLogin{
+  width: 100%;
+}
+//ESPINER QUE APARECE CADA QUE SE LOGUEA EL USUARIO
+.spinner{
+		position: absolute;
+		z-index: 2;
+    margin-top: 35vh;
+    margin-left: 47%;
+}
+
+//SEPARA EL BOTON DE INGRESAR DE LOS INPUTS
+.margenSuperior{
+  margin-top: 75px;
+}
+
+//TEXTO DE PROBLEMA AL ACCEDER DEBAJO DE INPUTS
+.textoProblemasAcceder{
+	font-size: 17px;
+	text-align: center;
+	cursor: pointer;
+}
+//SOBREESCRIBIR EL TEMA DE ANGULAR MATERIAL:
+
+/*PERSONALIZAR EL COLOR DE INPUT
+::ng-deep .mat-focused {//cambia el color del label cuando se enfoca
+  color: #272727 !important;
+ }
+ ::ng-deep.mat-form-field-underline { //cambia el color del subrayado
+  background-color: #272727 !important;
+  border-color: #272727 !important;
+}
+::ng-deep.mat-form-field-ripple {//cambiar el color del subrayado cuando se enfoca
+ background-color: #272727 !important;
+ border-color: #272727 !important;
+
+}
+::ng-deep.mat-form-field-label{//color del label
+  color: #272727 !important;
+}
+::ng-deep.mat-input-element {//color del punto de insercion (parpadeo de barra vertical al escribir)
+    caret-color: #272727 !important;
+}
+*/
+
+//PERSONALIZAR SNACK BAR
+::ng-deep.mat-snack-bar-container {//todo el snack que se despliega
+	color: black !important;
+	background:#e1d4c8 !important;
+}
+::ng-deep.mat-simple-snackbar{
+	font-family: 'Darker Grotesque', sans-serif !important;
+	font-size: 20px!important;
+}
+::ng-deep.mat-button{ //label cerrar (es un btn)
+	color: black!important;
+	font-family: 'Darker Grotesque', sans-serif !important;
+	font-size: 20px!important;
+}

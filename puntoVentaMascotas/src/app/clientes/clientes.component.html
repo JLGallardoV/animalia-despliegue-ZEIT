@@ -1,0 +1,183 @@
+  <br>
+  <mat-card class="contenedorAcciones" style="width: 80%;">
+    <div class="row">
+      <div class="col-2" style="margin-right: -10%;">
+        <button mat-fab class="btnAcciones fuenteTitulos" (click)="openAlta(content)"><i class='fas fa-user-plus icono'></i></button>
+      </div>
+
+      <div class="col-10" style="margin-top: -5px;margin-left:10px;">
+        <mat-form-field class="fuenteCuerpos inputBuscar" style="">
+          <input matInput (keyup)="filtrarRegistros($event.target.value)" placeholder="Buscar" style="">
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card>
+  <br>
+  <!-- card contenedora de tabla -->
+  <div name="cardTablaRegistros">
+    <mat-card style="width: 98%;margin: auto;">
+      <div class="tablaElastica">
+        <table mat-table [dataSource]="dsClientes" class="fuenteCuerpos" style="font-size:98px">
+
+        <ng-container matColumnDef="idCliente">
+          <th mat-header-cell *matHeaderCellDef style="text-align:center"> ID </th>
+          <td mat-cell *matCellDef="let i" style="text-align:center"> {{i.idCliente}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombreCliente">
+          <th mat-header-cell *matHeaderCellDef style="text-align:center"> Nombre </th>
+          <td mat-cell *matCellDef="let i" style="text-align:center"> {{i.nombreCliente}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="apellidoPaternoCliente">
+          <th mat-header-cell *matHeaderCellDef style="text-align:center"> Apellido P. </th>
+          <td mat-cell *matCellDef="let i" style="text-align:center"> {{i.apellidoPaternoCliente}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ciudadCliente">
+          <th mat-header-cell *matHeaderCellDef style="text-align:center"> Ciudad </th>
+          <td mat-cell *matCellDef="let i" style="text-align:center"> {{i.ciudadCliente}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estadoCliente">
+          <th mat-header-cell *matHeaderCellDef style="text-align:center"> Estado </th>
+          <td mat-cell *matCellDef="let i" style="text-align:center"> {{i.estadoCliente}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef style="text-align:center"> Acciones </th>
+          <td mat-cell *matCellDef="let i" style="text-align:center">
+              <button mat-flat-button color="accent" class="fuenteCuerpos btnAccionesColumna" (click)="openScrollableContentCliente(longContentCliente,i.idCliente)">Informacion</button>
+              <button mat-flat-button color="accent" style="margin-left: 2px;" class="fuenteCuerpos btnAccionesColumna"  (click)="openEditar(content,i.idCliente,i.nombreCliente,i.apellidoPaternoCliente,i.apellidoMaternoCliente,i.ciudadCliente,i.estadoCliente,i.paisCliente,i.direccionCliente,i.coloniaCliente,i.cpCliente,i.telefonoCliente,i.emailCliente)">Modificar</button>
+              <button mat-flat-button color="accent" style="margin-left: 2px;" class="fuenteCuerpos btnAccionesColumna"  (click)="eliminarCliente(i.idCliente)">Eliminar</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsClientes"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsClientes;"></tr>
+      </table>
+
+      </div>
+      <mat-paginator [pageSize]="4" [pageSizeOptions]="[2, 4, 6]" showFirstLastButtons class="colorPaginador"></mat-paginator>
+    </mat-card>
+  </div>
+  <!-- modal para el llenado de datos -->
+
+    <ng-template #content let-modal>
+      <div class="modal-header" style="background: #2d618c;color: white;">
+        <h3 class="modal-title fuenteTitulos" id="modal-basic-title" style="margin-left:27%;">{{titulo}}&nbsp;<i class='fas fa-id-card' style='font-size: 20px;'></i></h3>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]= "frmClientes">
+           <input formControlName="idCliente" type="hidden">
+           <div name="par1NombreApellidoP" style="display:flex;">
+             <mat-form-field class="fuenteCuerpos inputModal" style="margin-right:15px;">
+               <input formControlName="nombreCliente" type="text"  matInput placeholder="Nombre" style="text-align:center;color:#272727">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.nombreCliente.invalid && frmClientes.controls.nombreCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+             <mat-form-field class="fuenteCuerpos inputModal">
+               <input formControlName="apellidoPaternoCliente"  type="text" matInput placeholder="Apellido Paterno" style="text-align:center;color:#272727;">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.apellidoPaternoCliente.invalid && frmClientes.controls.apellidoPaternoCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+           </div>
+
+           <div name="par2ApellMCiudad" style="display:flex;">
+             <mat-form-field class="fuenteCuerpos inputModal" style="margin-right:15px;">
+               <input formControlName="apellidoMaternoCliente" type="text" matInput  placeholder="Apellido Materno"  style="text-align:center;color:#272727;">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.apellidoMaternoCliente.invalid && frmClientes.controls.apellidoMaternoCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+             <mat-form-field class="fuenteCuerpos inputModal">
+               <input formControlName="ciudadCliente" type="text" matInput  placeholder="Ciudad"  style="text-align:center;color:#272727;">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.ciudadCliente.invalid && frmClientes.controls.ciudadCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+           </div>
+
+           <div name="par3EstadoPais" style="display:flex;">
+             <mat-form-field class="fuenteCuerpos inputModal" style="margin-right:15px;">
+               <input formControlName="estadoCliente" type="text" matInput  placeholder="Estado"  style="text-align:center;color:#272727;">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.estadoCliente.invalid && frmClientes.controls.estadoCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+             <mat-form-field class="fuenteCuerpos inputModal">
+               <input formControlName="paisCliente" type="text" matInput  placeholder="Pais"  style="text-align:center;color:#272727;">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.paisCliente.invalid && frmClientes.controls.paisCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+           </div>
+
+           <div name="par4DireccionColonia" style="display:flex;">
+             <mat-form-field class="fuenteCuerpos inputModal" style="margin-right:15px;">
+               <input formControlName="direccionCliente"  matInput  placeholder="Direccion"  style="text-align:center;color:#272727;">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.direccionCliente.invalid && frmClientes.controls.direccionCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+             <mat-form-field class="fuenteCuerpos inputModal">
+               <input formControlName="coloniaCliente" matInput placeholder="Colonia"  style="text-align:center;color:#272727;">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.coloniaCliente.invalid && frmClientes.controls.coloniaCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+           </div>
+
+           <div name="par5CPTelefono" style="display:flex;">
+             <mat-form-field class="fuenteCuerpos inputModal" style="margin-right:15px;">
+               <input formControlName="cpCliente" matInput placeholder="CP"  style="text-align:center;color:#272727;">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.cpCliente.invalid && frmClientes.controls.cpCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+             <mat-form-field class="fuenteCuerpos inputModal">
+               <input formControlName="telefonoCliente" matInput placeholder="Telefono"  style="text-align:center;color:#272727;">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.telefonoCliente.invalid && frmClientes.controls.telefonoCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+           </div>
+
+           <div name="par6Email" style="display:flex;">
+             <mat-form-field class="fuenteCuerpos inputModal" style="margin-right:15px;width:100vw!important;">
+               <input formControlName="emailCliente" matInput placeholder="Email"  style="text-align:center;color:#272727;">
+             </mat-form-field>
+             <label *ngIf="frmClientes.controls.emailCliente.invalid && frmClientes.controls.emailCliente.dirty" style="color:red;">Este campo es obligatorio</label>
+             <br>
+           </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button mat-flat-button color="accent" style="width: 100%;font-size: 22px;" class="fuenteCuerpos margenSuperior" [disabled]="frmClientes.invalid" (click)="ejecutarPeticion()">Ejecutar</button>
+      </div>
+    </ng-template>
+
+    <!-- modal para mostrar Informacion detallada del cliente -->
+    <ng-template #longContentCliente let-modal>
+      <div class="modal-header" style="background: #2d618c;color: white;">
+        <h3 class="modal-title fuenteTitulos" id="modal-basic-title" style="margin:auto;">
+          Detalles del Cliente
+          <i class='fas fa-id-card' style='font-size: 20px;'></i>
+        </h3>
+      </div>
+      <div id="etiquetaPDF" class="modal-body" *ngFor="let i of arregloDetalleCliente">
+        <p class="fuenteCuerpos" style="font-size:22px;text-align:center;">
+          <b>ID:</b> {{i.idCliente}}
+          <br><b>Nombre:</b> {{i.nombreCliente}}
+          <br><b>Apellido P:</b> {{i.apellidoPaternoCliente}}
+          <br><b>Apellido M:</b> {{i.apellidoMaternoCliente}}
+          <br><b>Ciudad:</b> {{i.ciudadCliente}}
+          <br><b>Estado:</b> {{i.estadoCliente}}
+          <br><b>Dirección:</b> {{i.direccionCliente}}
+          <br><b>Colonia:</b> {{i.coloniaCliente}}
+          <br><b>CP:</b> {{i.cpCliente}}
+          <br><b>País:</b> {{i.paisCliente}}
+          <br><b>Email:</b> {{i.emailCliente}}
+          <br><b>Telefono:</b> {{i.telefonoCliente}}
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button mat-flat-button color="accent" class="btnAgregar fuenteCuerpos margenSuperior" (click)="generarPDF('etiquetaPDF')" style="font-size: 19px;">Imprimir</button>
+        <button mat-flat-button color="accent" class="btnAgregar fuenteCuerpos margenSuperior" (click)="modal.dismiss('Cross click')" style="font-size: 19px;">Cerrar</button>
+      </div>
+    </ng-template>

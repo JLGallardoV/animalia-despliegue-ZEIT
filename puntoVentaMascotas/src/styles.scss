@@ -1,0 +1,95 @@
+//TEMA ANGULAR MATERIAL:
+@import '~@angular/material/theming'; //personalizando tema (en esa ruta se encuentra la paleta)
+@import url('https://fonts.googleapis.com/css?family=Darker+Grotesque|Marcellus+SC&display=swap');
+
+/*CREANDO MI TEMA PERSONALIZADO*/
+@include mat-core();
+
+$primary: mat-palette($md-primary, 500);
+$accent: mat-palette($md-accent, 500, A200, A400);
+$warn: mat-palette($md-warn, 500);
+
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+
+@include angular-material-theme($theme);
+
+//FUENTES PARA LA PLATAFORMA
+.fuenteTitulos{
+  font-family: 'Marcellus SC', serif;
+}
+
+.fuenteCuerpos{
+  font-family: 'Darker Grotesque', sans-serif;
+}
+//ESTANDAR DE TAMAÑO DE ICONOS
+.icono{
+  font-size: 15px!important;
+  margin-top: -25px!important;
+  color:white!important;
+}
+//COLOR DE LOS PAGINADORES DE LAS TABLAS
+.colorPaginador{
+  width: 99.99%;
+  background:#2d618c!important;
+  color:white
+}
+
+//ESTILOS PARA MODULOS CRUD:
+.contenedorAcciones{
+  width: 85%;
+  margin: auto;
+  height: auto;
+}
+
+.btnAcciones{
+  width: 40px!important;
+  height: 40px!important;
+}
+
+.inputBuscar{
+  font-size: 20px;
+  margin-top: -20px;
+  width: 100%;
+}
+//ESTILOS PARA TABLA CRUD:
+table {
+  width: 100%;
+}
+.mat-header-cell{ //contenido de cabeceras
+  font-size: 20px !important;
+  color: white !important;
+  background: #2d618c!important;
+}
+.mat-cell{ //contenido celda
+  font-size: 18px !important;
+  color: #012440!important;
+  background-color: white!important;
+}
+
+.btnAccionesColumna{
+  width: 100px;
+  font-size: 18px!important;
+  //color: #191818;
+}
+
+//MODAL DE NG-BOOTSTRAP AGREGAMOS ANIMACIONES
+@keyframes animacionModal {
+  //pasos intermedios en puntos de trayectoria
+  0%   {transform: scale(0.5)}
+  75%  {transform: scale(1.1)}
+  100% {transform: scale(1.0)}
+}
+
+.modal-content{
+  animation-name: animacionModal;
+  animation-duration: 0.5s;
+}
+
+//Cambiamos el encabezado del tab group
+::ng-deep.mat-tab-label{
+  font-family: 'Darker Grotesque', sans-serif!important;
+  font-size: 22px!important;
+  color: #012440!important;
+}

@@ -1,0 +1,40 @@
+//CARD DONDE ESTAN LA MAYORIA DE COMPONENTES (COMO LA TABLA)
+.cardPrincipal{
+  background-color: #000000bd;
+  border-radius: 6px;
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  transition: 0.5s;
+}
+
+//BTN PARA EJECUTAR UNA PETICION POST O PUT DEL MODAL
+.btnEjecutar{
+    color: #191818;
+    border: solid 1px #676767;
+    margin: auto;
+    width: 65%;
+    font-size: 20px;
+}
+
+//LONGITUDES DE LA TABLA, EVITA QUE SE DESBORDEN LOS DATOS DE LA TABLA
+.tablaElastica{
+  overflow-y: auto;
+  min-height: auto;
+  max-height: 45%;
+  transition: 0.5s;
+}
+
+//PARA POPOVER DE MAS INFORMACION
+.popover{
+  z-index: 1005!important;
+}
+
+//AÑADIR PADDING AL TAB EN GENERAL PARA QUESE ALCANCE A DISTINGUIR LA SOMBRA INFERIOR DE LOS CARDS
+::ng-deep.mat-tab-body-content {
+  padding: 2px!important;
+}
+//SOBREESCRIBIR OPTIONS DEL SELECT PARA QUE SE VEAN ARRIBA DEL MODAL
+::ng-deep.cdk-overlay-container {
+  z-index: 10001!important;
+}
